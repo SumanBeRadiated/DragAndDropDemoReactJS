@@ -124,7 +124,10 @@ function App() {
         </i>{" "}
         by{" "}
         <span>
-          <a href="https://github.com/SumanBeRadiated/DragAndDropDemoReactJS.git">
+          <a
+            href="https://github.com/SumanBeRadiated/DragAndDropDemoReactJS.git"
+            target="_blank"
+          >
             SumanBeRadiated
             <i>
               <ion-icon name="logo-github"></ion-icon>
