@@ -124,7 +124,7 @@ function App() {
         </i>{" "}
         by{" "}
         <span>
-          <a href="">
+          <a href="https://github.com/SumanBeRadiated/DragAndDropDemoReactJS.git">
             SumanBeRadiated
             <i>
               <ion-icon name="logo-github"></ion-icon>
