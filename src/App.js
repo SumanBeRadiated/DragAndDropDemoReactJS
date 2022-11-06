@@ -14,6 +14,7 @@ function App() {
           onSubmit={(e) => {
             e.preventDefault();
             setItemList([...itemList, inputItem]);
+            setInputItem("");
           }}
         >
           <input

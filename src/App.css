@@ -47,6 +47,9 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #256ece;
 }
+input[type="submit"]:active {
+  background-color: hsl(214, 70%, 44%);
+}
 
 form,
 .item-list {
