@@ -110,6 +110,10 @@ form,
   left: 0;
 }
 
+.item-on-hold {
+  background-color: #96b3d8;
+}
+
 .footer {
   margin: 4em auto;
   width: 1000px;

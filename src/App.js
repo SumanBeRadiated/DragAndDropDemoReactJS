@@ -29,7 +29,7 @@ function App() {
           {itemList.map((item, ind) => {
             return (
               <div
-                className="item"
+                className={`item${dragItem === ind ? " item-on-hold" : ""}`}
                 key={ind}
                 id={ind}
                 draggable={true}
@@ -80,11 +80,9 @@ function App() {
                     // const offsetAbove =
                     //   e.clientY < itemElement.height * 0.25 + itemElement.top;
                     // const offsetBelow =
-                    //   e.clientY >
-                    //   itemElement.bottom - itemElement.height * 0.25;
+                    // e.clientY > itemElement.bottom - itemElement.height * 0.25;
                     // const offsetMid =
-                    //   e.clientY >=
-                    //     itemElement.top + itemElement.height * 0.25 &&
+                    // e.clientY >= itemElement.top + itemElement.height * 0.25 &&
                     //   e.clientY <=
                     //     itemElement.bottom - itemElement.height * 0.25;
                     const y = x.splice(dragItem, 1)[0];
@@ -93,8 +91,22 @@ function App() {
                       e.clientY <
                       itemElement.height * 0.25 + itemElement.top
                     ) {
-                      x.splice(ind - 1 < 0 ? 0 : ind - 1, 0, y);
-                    } else {
+                      x.splice(
+                        ind === 0 ? 0 : ind < dragItem ? ind : ind - 1,
+                        0,
+                        y
+                      );
+                    } else if (
+                      e.clientY >
+                      itemElement.bottom - itemElement.height * 0.25
+                    ) {
+                      x.splice(ind > dragItem ? ind : ind + 1, 0, y);
+                    } else if (
+                      e.clientY >=
+                        itemElement.top + itemElement.height * 0.25 &&
+                      e.clientY <=
+                        itemElement.bottom - itemElement.height * 0.25
+                    ) {
                       x.splice(ind, 0, y);
                     }
                     setItemList(x);
@@ -106,6 +118,10 @@ function App() {
                   e.target.classList.remove("item-border-bottom");
 
                   e.target.classList.remove("item-hover");
+                }}
+                onDragEnd={() => {
+                  setDragItem(null);
+                  setDragOverItem(null);
                 }}
               >
                 <i>
